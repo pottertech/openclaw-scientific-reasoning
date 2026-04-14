@@ -1,0 +1,24 @@
+{
+  "capability_name": "optimization",
+  "description": "Mathematical optimization including both discrete combinatorial optimization (OR-Tools) and continuous convex optimization (CVXPY). Covers scheduling, routing, assignment, and objective maximization.",
+  "included_tools": ["ortools", "cvxpy"],
+  "routing_keywords": ["schedule", "assign", "route", "packing", "bin packing", "worker assignment", "minimize", "maximize", "objective", "budget", "capacity", "optimal allocation", "linear program", "integer program"],
+  "use_cases": [
+    "Schedule workers to jobs to minimize total travel time",
+    "Pack boxes into bins with minimum wasted space",
+    "Minimize cost subject to resource constraints",
+    "Find the best portfolio allocation under risk constraints"
+  ],
+  "exclusions": [
+    "Symbolic derivation and simplification",
+    "Satisfiability checking for logical constraints",
+    "Uncertainty-aware probabilistic inference"
+  ],
+  "example_prompts": [
+    "Assign 5 workers to 5 jobs with minimum total cost",
+    "Pack 50 items of varying sizes into the fewest bins",
+    "Minimize x + 2y subject to x + y >= 10, x >= 0, y >= 0"
+  ],
+  "fallback_tool": "z3",
+  "wrapper_contract": "wrappers/contracts/optimization-contract.json"
+}

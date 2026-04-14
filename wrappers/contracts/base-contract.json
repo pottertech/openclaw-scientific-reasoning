@@ -1,0 +1,38 @@
+{
+  "contract_version": "0.1.0",
+  "contract_name": "base-wrapper-contract",
+  "description": "Base contract for all tool wrappers in OpenClaw-Scientific-Reasoning. All wrappers must implement this interface.",
+  "required_fields": {
+    "status": {
+      "type": "string",
+      "enum": ["running", "complete", "failed", "unknown"],
+      "description": "Current execution status"
+    },
+    "tool_name": {
+      "type": "string",
+      "description": "Name of the tool being invoked"
+    },
+    "errors": {
+      "type": "array",
+      "description": "List of error messages, empty if successful"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Tool-specific execution metadata"
+    },
+    "result": {
+      "type": "object",
+      "description": "Normalized result object"
+    }
+  },
+  "optional_fields": {
+    "execution_time_ms": "Elapsed time in milliseconds",
+    "invocation_id": "Unique ID for this invocation",
+    "input_summary": "Brief description of inputs"
+  },
+  "normalization_rules": {
+    "status": "Must be lowercase string from enum",
+    "errors": "Always return array, even if empty",
+    "result": "Must be JSON-serializable object"
+  }
+}

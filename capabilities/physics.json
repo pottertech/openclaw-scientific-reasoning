@@ -1,0 +1,24 @@
+{
+  "capability_name": "physics",
+  "description": "Physics and engineering analysis using Lcapy, SciPy, and Cantera. Covers circuit analysis, transfer functions, impedance, Laplace transforms, and thermodynamics.",
+  "included_tools": ["lcapy", "scipy", "cantera"],
+  "routing_keywords": ["circuit", "impedance", "transfer function", "laplace", "thermodynamics", "electrical", "mechanical", "heat", "temperature", "pressure", "fluid", "system dynamics", "Bode plot", "filter"],
+  "use_cases": [
+    "Analyze an RLC circuit and find its transfer function",
+    "Compute the response of a control system to a step input",
+    "Model thermodynamic properties of a gas mixture",
+    "Simulate heat transfer in a solid"
+  ],
+  "exclusions": [
+    "Molecular structure analysis (use RDKit, Cantera)",
+    "Discrete optimization for scheduling",
+    "Pure symbolic algebra without physics context"
+  ],
+  "example_prompts": [
+    "Find the impedance of a series RLC circuit at frequency f",
+    "Compute the transfer function for a low-pass RC filter",
+    "Model the temperature rise in a metal rod exposed to a heat source"
+  ],
+  "fallback_tool": "scipy",
+  "wrapper_contract": "wrappers/contracts/physics-contract.json"
+}

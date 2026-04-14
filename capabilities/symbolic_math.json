@@ -1,0 +1,26 @@
+{
+  "capability_name": "symbolic_math",
+  "description": "Exact symbolic mathematics using SymPy and SageMath. Covers algebraic derivation, equation simplification, symbolic integration, and exact solving.",
+  "included_tools": ["sympy", "sagemath"],
+  "routing_keywords": ["derive", "simplify", "symbolic", "exact", "solve exactly", "algebraic", "factor", "expand", "integrate symbolically", "differentiate"],
+  "use_cases": [
+    "Simplify a complex rational expression",
+    "Solve a polynomial exactly over the rationals",
+    "Compute an indefinite integral symbolically",
+    "Factor a multivariate polynomial",
+    "Find the general term of a sequence"
+  ],
+  "exclusions": [
+    "Numerical approximation when exact answer is needed",
+    "Plotting or visualization (use SciPy)",
+    "Optimization under constraints (use CVXPY or Z3)"
+  ],
+  "example_prompts": [
+    "Simplify (x^2 - 1)/(x - 1) for x ≠ 1",
+    "Find the roots of x^5 - x^3 + 2x - 1",
+    "Compute ∫ x^2 sin(x) dx",
+    "Factor x^4 + 4 over the reals"
+  ],
+  "fallback_tool": "scipy",
+  "wrapper_contract": "wrappers/contracts/symbolic-contract.json"
+}

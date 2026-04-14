@@ -1,0 +1,24 @@
+{
+  "capability_name": "chemistry",
+  "description": "Chemistry and molecular analysis using RDKit, Cantera, and PySCF. Covers molecular structure analysis, reaction modeling, combustion, and quantum chemistry calculations.",
+  "included_tools": ["rdkit", "cantera", "pyscf"],
+  "routing_keywords": ["molecule", "fingerprint", "reaction", "combustion", "quantum chemistry", "structure", "atom", "bond", "SMILES", "molfile", "reaction mechanism", "enthalpy", "entropy", "chemkin"],
+  "use_cases": [
+    "Analyze molecular structure and compute fingerprints",
+    "Model a combustion reaction mechanism",
+    "Calculate quantum chemistry properties of a molecule",
+    "Parse and simulate a chemical reaction network"
+  ],
+  "exclusions": [
+    "Generic circuit analysis (use Lcapy)",
+    "Symbolic algebra of chemical equations",
+    "General optimization without chemistry context"
+  ],
+  "example_prompts": [
+    "Find the molecular fingerprint for the SMILES string CCO",
+    "Simulate the combustion of methane with air",
+    "Compute the ground state energy of water using PySCF"
+  ],
+  "fallback_tool": "scipy",
+  "wrapper_contract": "wrappers/contracts/chemistry-contract.json"
+}

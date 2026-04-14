@@ -1,0 +1,53 @@
+{
+  "id": "openclaw-scientific-reasoning",
+  "name": "OpenClaw-Scientific-Reasoning",
+  "version": "0.1.0",
+  "description": "A unified reasoning toolkit for symbolic math, scientific computing, optimization, constraint solving, and uncertainty-aware inference.",
+  "category": "capability-pack",
+  "tools": [
+    "sympy",
+    "optlang",
+    "pyneqsys",
+    "pyodesys",
+    "lcapy",
+    "scipy",
+    "rdkit",
+    "cantera",
+    "pyscf",
+    "sagemath",
+    "ortools",
+    "z3",
+    "cvxpy",
+    "pymc"
+  ],
+  "capability_domains": [
+    "symbolic_math",
+    "scientific_computing",
+    "optimization",
+    "constraint_reasoning",
+    "uncertainty_inference",
+    "chemistry",
+    "physics"
+  ],
+  "supported_platforms": [
+    "macos",
+    "linux"
+  ],
+  "supported_agents": [
+    "OpenClaw AI agents with Python scientific runtime support"
+  ],
+  "install_entrypoint": "scripts/install.sh",
+  "uninstall_entrypoint": "scripts/uninstall.sh",
+  "verify_entrypoint": "scripts/verify.sh",
+  "update_entrypoint": "scripts/update.sh",
+  "register_entrypoint": "scripts/register-capabilities.sh",
+  "unregister_entrypoint": "scripts/unregister-capabilities.sh",
+  "docs_index": [
+    "README.md",
+    "docs/PRODUCT-DESCRIPTION.md",
+    "docs/INTERNAL-AGENT-BRIEF.md",
+    "docs/INTEGRATION-GUIDE.md",
+    "docs/ROUTING-GUIDE.md",
+    "docs/STARTUP-BRIEF-SNIPPET.md"
+  ]
+}

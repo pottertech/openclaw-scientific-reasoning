@@ -1,0 +1,24 @@
+{
+  "capability_name": "scientific_computing",
+  "description": "Numerical simulation and scientific computing using SciPy, pyneqsys, pyodesys, and optlang. Covers ODE integration, numerical equation solving, and optimization of system models.",
+  "included_tools": ["scipy", "pyneqsys", "pyodesys", "optlang"],
+  "routing_keywords": ["simulate", "numerical", "ode", "differential equation", "scientific", "compute numerically", "model", "solve numerically", "system dynamics"],
+  "use_cases": [
+    "Solve a system of ordinary differential equations",
+    "Find numerical roots of a nonlinear equation",
+    "Simulate a chemical reaction kinetics model",
+    "Optimize parameters of a mechanistic model"
+  ],
+  "exclusions": [
+    "Symbolic integration when exact solution is feasible",
+    "Discrete scheduling or combinatorial optimization",
+    "Satisfiability or logical constraint solving"
+  ],
+  "example_prompts": [
+    "Solve dy/dt = -k*y with initial condition y(0) = 1",
+    "Find the equilibrium points of the Lotka-Volterra system",
+    "Fit a kinetic model to time-series concentration data"
+  ],
+  "fallback_tool": "sympy",
+  "wrapper_contract": "wrappers/contracts/scientific-contract.json"
+}

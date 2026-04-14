@@ -1,0 +1,13 @@
+sympy
+optlang
+pyneqsys
+pyodesys
+lcapy
+scipy
+rdkit
+cantera
+pyscf
+ortools
+z3-solver
+cvxpy
+pymc

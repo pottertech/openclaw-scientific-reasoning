@@ -1,0 +1,32 @@
+{
+  "name": "openclaw-scientific-reasoning-integration",
+  "description": "Example integration config for OpenClaw agent",
+  "capability_pack": {
+    "id": "openclaw-scientific-reasoning",
+    "version": "0.1.0",
+    "install_path": "/path/to/openclaw-scientific-reasoning"
+  },
+  "agent_config": {
+    "startup_brief_path": "docs/STARTUP-BRIEF-SNIPPET.md",
+    "router_hints_path": "config/router-hints.json",
+    "capability_registry_path": "capabilities/capability-registry-entry.json"
+  },
+  "environment": {
+    "python_required": ">=3.11",
+    "pip_packages": [
+      "sympy",
+      "scipy",
+      "cvxpy",
+      "ortools",
+      "z3-solver",
+      "pymc",
+      "rdkit",
+      "cantera",
+      "pyscf",
+      "lcapy",
+      "optlang",
+      "pyneqsys",
+      "pyodesys"
+    ]
+  }
+}

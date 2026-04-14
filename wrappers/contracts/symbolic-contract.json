@@ -1,0 +1,46 @@
+{
+  "contract_version": "0.1.0",
+  "contract_name": "symbolic-math-wrapper-contract",
+  "description": "Contract for symbolic mathematics tool wrappers (SymPy, SageMath).",
+  "extends": "base-contract.json",
+  "result_schema": {
+    "type": "object",
+    "properties": {
+      "expression": {
+        "type": "string",
+        "description": "The resulting symbolic expression in string form"
+      },
+      "expression_type": {
+        "type": "string",
+        "enum": ["polynomial", "rational", "trigonometric", "logarithmic", "exponential", "piecewise", "matrix", "other"]
+      },
+      "simplified": {
+        "type": "boolean",
+        "description": "Whether the expression was simplified from input"
+      },
+      "solution_count": {
+        "type": "integer",
+        "description": "Number of solutions found (for solving problems)"
+      },
+      "solutions": {
+        "type": "array",
+        "description": "List of solutions when solving equations"
+      }
+    },
+    "required": ["expression", "expression_type"]
+  },
+  "example_output": {
+    "status": "complete",
+    "tool_name": "sympy",
+    "errors": [],
+    "metadata": {
+      "operation": "simplify",
+      "input_expression": "(x^2 - 1)/(x - 1)"
+    },
+    "result": {
+      "expression": "x + 1",
+      "expression_type": "polynomial",
+      "simplified": true
+    }
+  }
+}

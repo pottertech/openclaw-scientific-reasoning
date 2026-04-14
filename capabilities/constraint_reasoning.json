@@ -1,0 +1,24 @@
+{
+  "capability_name": "constraint_reasoning",
+  "description": "Formal constraint reasoning and satisfiability checking using Z3. Covers logical consistency, policy conflict detection, constraint solving, and symbolic execution.",
+  "included_tools": ["z3"],
+  "routing_keywords": ["satisfiable", "contradiction", "consistent", "policy conflict", "constraint check", "logical rules", "SAT", " SMT", "verify", "proof", "implication", "forall"],
+  "use_cases": [
+    "Check if a set of logical constraints is satisfiable",
+    "Verify that a policy satisfies desired invariants",
+    "Find a model that satisfies given constraints",
+    "Prove that one formula implies another"
+  ],
+  "exclusions": [
+    "Numerical optimization with continuous objectives",
+    "Scheduling and routing problems",
+    "Symbolic mathematics for algebraic simplification"
+  ],
+  "example_prompts": [
+    "Is the formula (x > 0) AND (x < -1) satisfiable?",
+    "Check if all employees can have unique roles given constraints",
+    "Verify that if a user is admin then audit logging is enabled"
+  ],
+  "fallback_tool": "ortools",
+  "wrapper_contract": "wrappers/contracts/constraint-contract.json"
+}

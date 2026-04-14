@@ -1,0 +1,38 @@
+{
+  "contract_version": "0.1.0",
+  "contract_name": "constraint-reasoning-wrapper-contract",
+  "description": "Contract for constraint reasoning tool wrappers (Z3).",
+  "extends": "base-contract.json",
+  "result_schema": {
+    "type": "object",
+    "properties": {
+      "satisfiable": {
+        "type": "boolean",
+        "description": "Whether the constraints are satisfiable"
+      },
+      "model": {
+        "type": "object",
+        "description": "Variable assignments that satisfy the constraints (if satisfiable)"
+      },
+      "check_result": {
+        "type": "string",
+        "enum": ["sat", "unsat", "unknown"]
+      }
+    },
+    "required": ["satisfiable", "check_result"]
+  },
+  "example_output": {
+    "status": "complete",
+    "tool_name": "z3",
+    "errors": [],
+    "metadata": {
+      "constraints_count": 2,
+      "solver": "z3"
+    },
+    "result": {
+      "satisfiable": true,
+      "model": {"x": 3, "y": 5},
+      "check_result": "sat"
+    }
+  }
+}

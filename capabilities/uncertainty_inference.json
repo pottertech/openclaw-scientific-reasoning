@@ -1,0 +1,24 @@
+{
+  "capability_name": "uncertainty_inference",
+  "description": "Bayesian uncertainty-aware inference using PyMC. Covers posterior estimation, credible intervals, probabilistic reasoning from noisy evidence, and uncertainty quantification.",
+  "included_tools": ["pymc"],
+  "routing_keywords": ["uncertainty", "confidence", "posterior", "credible interval", "likely", "noisy evidence", "probability", "Bayesian", "expectation", "variance", "stochastic", "random variable"],
+  "use_cases": [
+    "Estimate parameters given noisy observations",
+    "Compute credible intervals for a posterior distribution",
+    "Predict outcomes with quantified uncertainty",
+    "Reason about the probability of hypotheses given evidence"
+  ],
+  "exclusions": [
+    "Exact symbolic computation without stochastic elements",
+    "Deterministic constraint satisfaction",
+    "Pure optimization without uncertainty"
+  ],
+  "example_prompts": [
+    "Given 10 coin flips with 8 heads, what is the posterior for the bias parameter?",
+    "Find a 95% credible interval for the mean of a normal distribution with unknown mean and variance",
+    "What is the probability that treatment A is better than treatment B given noisy outcomes?"
+  ],
+  "fallback_tool": "scipy",
+  "wrapper_contract": "wrappers/contracts/uncertainty-contract.json"
+}

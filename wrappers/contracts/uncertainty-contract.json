@@ -1,0 +1,51 @@
+{
+  "contract_version": "0.1.0",
+  "contract_name": "uncertainty-inference-wrapper-contract",
+  "description": "Contract for uncertainty inference tool wrappers (PyMC).",
+  "extends": "base-contract.json",
+  "result_schema": {
+    "type": "object",
+    "properties": {
+      "posterior_summary": {
+        "type": "object",
+        "description": "Summary statistics of the posterior distribution"
+      },
+      "credible_intervals": {
+        "type": "array",
+        "description": "List of credible intervals at different confidence levels"
+      },
+      "samples_count": {
+        "type": "integer",
+        "description": "Number of MCMC samples used"
+      },
+      "effective_samples": {
+        "type": "object",
+        "description": "Effective sample size for each parameter"
+      }
+    },
+    "required": ["posterior_summary"]
+  },
+  "example_output": {
+    "status": "complete",
+    "tool_name": "pymc",
+    "errors": [],
+    "metadata": {
+      "model_type": "normal_inference",
+      "chains": 4,
+      "samples_per_chain": 1000
+    },
+    "result": {
+      "posterior_summary": {
+        "mean": 0.52,
+        "std": 0.12,
+        "hdi_3_percent": 0.32,
+        "hdi_97_percent": 0.72
+      },
+      "credible_intervals": [
+        {"level": 0.95, "lower": 0.28, "upper": 0.76}
+      ],
+      "samples_count": 4000,
+      "effective_samples": {"mean": 3500}
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "domains": {
+    "symbolic_math": {
+      "keywords": ["derive", "simplify", "symbolic", "exact", "solve exactly", "algebraic", "factor", "expand", "integrate symbolically", "differentiate"],
+      "tools": ["sympy", "sagemath"],
+      "priority": 10
+    },
+    "scientific_computing": {
+      "keywords": ["simulate", "numerical", "ode", "differential equation", "scientific", "compute numerically", "model", "solve numerically", "system dynamics"],
+      "tools": ["scipy", "pyneqsys", "pyodesys", "optlang"],
+      "priority": 8
+    },
+    "optimization_discrete": {
+      "keywords": ["schedule", "assign", "route", "packing", "bin packing", "worker assignment", "TSP", "vehicle routing"],
+      "tools": ["ortools"],
+      "priority": 9
+    },
+    "optimization_continuous": {
+      "keywords": ["minimize", "maximize", "objective", "budget", "capacity", "optimal allocation", "linear program", "integer program", "convex"],
+      "tools": ["cvxpy"],
+      "priority": 9
+    },
+    "constraint_reasoning": {
+      "keywords": ["satisfiable", "contradiction", "consistent", "policy conflict", "constraint check", "logical rules", "SAT", "SMT", "verify", "proof", "implication", "forall"],
+      "tools": ["z3"],
+      "priority": 10
+    },
+    "uncertainty_inference": {
+      "keywords": ["uncertainty", "confidence", "posterior", "credible interval", "likely", "noisy evidence", "probability", "Bayesian", "expectation", "variance", "stochastic"],
+      "tools": ["pymc"],
+      "priority": 10
+    },
+    "chemistry": {
+      "keywords": ["molecule", "fingerprint", "reaction", "combustion", "quantum chemistry", "structure", "atom", "bond", "SMILES", "molfile", "reaction mechanism"],
+      "tools": ["rdkit", "cantera", "pyscf"],
+      "priority": 10
+    },
+    "physics": {
+      "keywords": ["circuit", "impedance", "transfer function", "laplace", "thermodynamics", "electrical", "heat", "temperature", "Bode plot", "filter"],
+      "tools": ["lcapy", "scipy", "cantera"],
+      "priority": 10
+    }
+  }
+}

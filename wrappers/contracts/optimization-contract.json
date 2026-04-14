@@ -1,0 +1,43 @@
+{
+  "contract_version": "0.1.0",
+  "contract_name": "optimization-wrapper-contract",
+  "description": "Contract for optimization tool wrappers (OR-Tools, CVXPY).",
+  "extends": "base-contract.json",
+  "result_schema": {
+    "type": "object",
+    "properties": {
+      "optimal_value": {
+        "type": "number",
+        "description": "The optimal objective value found"
+      },
+      "optimal_solution": {
+        "type": "object",
+        "description": "Variable name to value mapping for the optimal solution"
+      },
+      "solver_status": {
+        "type": "string",
+        "enum": ["optimal", "feasible", "infeasible", "unbounded", "unknown"]
+      },
+      "solve_time_ms": {
+        "type": "integer",
+        "description": "Time taken to solve in milliseconds"
+      }
+    },
+    "required": ["optimal_value", "solver_status"]
+  },
+  "example_output": {
+    "status": "complete",
+    "tool_name": "cvxpy",
+    "errors": [],
+    "metadata": {
+      "problem_type": "qp",
+      "constraints_count": 3
+    },
+    "result": {
+      "optimal_value": 0.0,
+      "optimal_solution": {"x": 2.0},
+      "solver_status": "optimal",
+      "solve_time_ms": 45
+    }
+  }
+}

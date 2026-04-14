@@ -1,0 +1,45 @@
+{
+  "id": "openclaw-scientific-reasoning",
+  "name": "OpenClaw-Scientific-Reasoning",
+  "version": "0.1.0",
+  "description": "A unified reasoning toolkit for symbolic math, scientific computing, optimization, constraint solving, and uncertainty-aware inference.",
+  "category": "capability-pack",
+  "install_type": "repo",
+  "supported_agents": [
+    "Any OpenClaw AI agent with Python scientific runtime support"
+  ],
+  "required_runtime": {
+    "python": ">=3.11"
+  },
+  "tools": [
+    "SymPy",
+    "optlang",
+    "pyneqsys",
+    "pyodesys",
+    "Lcapy",
+    "SciPy",
+    "RDKit",
+    "Cantera",
+    "PySCF",
+    "SageMath",
+    "OR-Tools",
+    "Z3",
+    "CVXPY",
+    "PyMC"
+  ],
+  "capability_domains": [
+    "symbolic_math",
+    "scientific_computing",
+    "optimization",
+    "constraint_reasoning",
+    "uncertainty_inference",
+    "chemistry",
+    "physics"
+  ],
+  "startup_brief_snippet_path": "docs/STARTUP-BRIEF-SNIPPET.md",
+  "verification_command": "bash scripts/verify.sh",
+  "install_command": "bash scripts/install.sh",
+  "update_command": "bash scripts/update.sh",
+  "uninstall_command": "bash scripts/uninstall.sh --mode unregister_only",
+  "router_hints_path": "config/router-hints.json"
+}
