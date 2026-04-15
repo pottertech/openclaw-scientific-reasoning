@@ -1,8 +1,8 @@
 # OpenClaw-Scientific-Reasoning
 
-A unified reasoning toolkit for symbolic math, scientific computing, optimization, constraint solving, and uncertainty-aware inference.
+A unified reasoning toolkit for symbolic math, scientific computing, optimization, graph analysis, constraint solving, formal reasoning, and uncertainty-aware inference.
 
-OpenClaw-Scientific-Reasoning is a portable capability pack for OpenClaw AI agents. It installs and documents a scientific reasoning stack that enables symbolic mathematics, numerical analysis, optimization, formal constraints, chemistry, physics, and probabilistic inference.
+OpenClaw-Scientific-Reasoning is a portable capability pack for OpenClaw AI agents. It installs and documents a scientific reasoning stack that enables symbolic mathematics, numerical analysis, optimization, graph reasoning, formal constraints, formal proof, chemistry, physics, and probabilistic inference.
 
 This repo includes:
 
@@ -32,13 +32,18 @@ This repo includes:
 - Z3
 - CVXPY
 - PyMC
+- Pyomo
+- NetworkX
+- Lean
 
 ## Capability domains
 
 - symbolic math
 - scientific computing
-- optimization
+- optimization (discrete, convex, and modeling)
+- graph reasoning
 - constraint reasoning
+- formal reasoning
 - uncertainty-aware inference
 - chemistry
 - physics
@@ -85,7 +90,9 @@ Use this capability pack when an OpenClaw agent needs:
 * exact algebra
 * numerical simulation
 * constrained optimization
+* graph and dependency analysis
 * logic or satisfiability checks
+* formal proof and verification
 * scientific computing
 * chemistry or physics analysis
 * uncertainty-aware inference from noisy evidence
@@ -100,7 +107,7 @@ Run:
 bash scripts/verify.sh
 ```
 
-This checks imports and basic runtime readiness.
+This checks imports and basic runtime readiness. Verification fails if Lean is not available (Lean is mandatory).
 
 ## OpenClaw integration
 
@@ -145,7 +152,9 @@ openclaw-scientific-reasoning/
 │   ├── symbolic_math.json
 │   ├── scientific_computing.json
 │   ├── optimization.json
+│   ├── graph_reasoning.json
 │   ├── constraint_reasoning.json
+│   ├── formal_reasoning.json
 │   ├── uncertainty_inference.json
 │   ├── chemistry.json
 │   └── physics.json
@@ -160,14 +169,19 @@ openclaw-scientific-reasoning/
 │   ├── ortools-playbook.md
 │   ├── z3-playbook.md
 │   ├── cvxpy-playbook.md
-│   └── pymc-playbook.md
+│   ├── pymc-playbook.md
+│   ├── pyomo-playbook.md
+│   ├── networkx-playbook.md
+│   └── lean-playbook.md
 ├── wrappers/
 │   ├── README.md
 │   ├── contracts/
 │   │   ├── base-contract.json
 │   │   ├── symbolic-contract.json
 │   │   ├── optimization-contract.json
+│   │   ├── graph-contract.json
 │   │   ├── constraint-contract.json
+│   │   ├── formal-reasoning-contract.json
 │   │   └── uncertainty-contract.json
 │   └── templates/
 │       ├── sympy-wrapper-template.py
@@ -175,9 +189,13 @@ openclaw-scientific-reasoning/
 │       ├── ortools-wrapper-template.py
 │       ├── z3-wrapper-template.py
 │       ├── cvxpy-wrapper-template.py
-│       └── pymc-wrapper-template.py
+│       ├── pymc-wrapper-template.py
+│       ├── pyomo-wrapper-template.py
+│       ├── networkx-wrapper-template.py
+│       └── lean-wrapper-template.py
 ├── scripts/
 │   ├── install.sh
+│   ├── install-lean-core.sh
 │   ├── uninstall.sh
 │   ├── verify.sh
 │   ├── update.sh
@@ -186,7 +204,9 @@ openclaw-scientific-reasoning/
 ├── examples/
 │   ├── symbolic/
 │   ├── optimization/
+│   ├── graph/
 │   ├── constraints/
+│   ├── formal/
 │   ├── uncertainty/
 │   ├── chemistry/
 │   ├── physics/

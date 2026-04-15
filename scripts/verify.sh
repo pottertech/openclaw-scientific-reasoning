@@ -34,6 +34,17 @@ check_python_import "OR-Tools" "ortools"
 check_python_import "Z3" "z3"
 check_python_import "CVXPY" "cvxpy"
 check_python_import "PyMC" "pymc"
+check_python_import "Pyomo" "pyomo"
+check_python_import "NetworkX" "networkx"
+
+echo "==> Verifying Lean (mandatory)"
+if command -v lean >/dev/null 2>&1; then
+  echo "[PASS] Lean executable"
+  lean --version 2>/dev/null || echo "[INFO] Lean version check skipped"
+else
+  echo "[FAIL] Lean executable not found (mandatory)"
+  FAIL=1
+fi
 
 if command -v sage >/dev/null 2>&1; then
   echo "[PASS] SageMath executable"

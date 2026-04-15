@@ -1,0 +1,94 @@
+{
+  "contract_name": "graph_reasoning_contract",
+  "contract_version": "0.1.0",
+  "domain": "graph_reasoning",
+  "description": "Normalized output contract for graph and network reasoning tasks.",
+  "required_fields": [
+    "contract_version",
+    "domain",
+    "tool_name",
+    "status",
+    "errors",
+    "metadata",
+    "result"
+  ],
+  "field_definitions": {
+    "contract_version": {
+      "type": "string",
+      "required": true
+    },
+    "domain": {
+      "type": "string",
+      "required": true,
+      "const": "graph_reasoning"
+    },
+    "tool_name": {
+      "type": "string",
+      "required": true,
+      "enum": ["NetworkX"]
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "enum": ["success", "partial", "invalid_input", "failure", "timeout"]
+    },
+    "errors": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "execution_time_ms": {
+          "type": ["number", "null"]
+        },
+        "graph_type": {
+          "type": ["string", "null"]
+        },
+        "is_directed": {
+          "type": ["boolean", "null"]
+        },
+        "is_weighted": {
+          "type": ["boolean", "null"]
+        },
+        "node_count": {
+          "type": ["integer", "null"]
+        },
+        "edge_count": {
+          "type": ["integer", "null"]
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "summary": {
+          "type": ["string", "null"]
+        },
+        "connectivity": {
+          "type": ["object", "null"]
+        },
+        "paths": {
+          "type": ["array", "null"]
+        },
+        "centrality": {
+          "type": ["object", "null"]
+        },
+        "components": {
+          "type": ["array", "null"]
+        },
+        "critical_nodes": {
+          "type": ["array", "null"]
+        },
+        "derived_graph_facts": {
+          "type": ["array", "null"]
+        }
+      }
+    }
+  }
+}

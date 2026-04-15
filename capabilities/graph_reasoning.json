@@ -1,0 +1,38 @@
+{
+  "capability_id": "graph_reasoning",
+  "name": "Graph Reasoning",
+  "description": "Graph-native reasoning for dependency analysis, topology, paths, and network structure.",
+  "version": "0.1.0",
+  "status": "active",
+  "tools": ["NetworkX"],
+  "keywords": [
+    "graph",
+    "network",
+    "dependency",
+    "topology",
+    "shortest path",
+    "connectivity",
+    "centrality",
+    "workflow graph"
+  ],
+  "use_when": [
+    "analyzing dependency structures",
+    "finding paths in networks",
+    "computing network centrality",
+    "detecting connected components",
+    "analyzing graph topology"
+  ],
+  "do_not_use_when": [
+    "problem is only metaphorically a graph",
+    "the real task is route optimization",
+    "the task is formal proof",
+    "the task is symbolic algebra"
+  ],
+  "contracts": [
+    "wrappers/contracts/graph-contract.json"
+  ],
+  "playbooks": [
+    "playbooks/networkx-playbook.md"
+  ],
+  "priority": 80
+}

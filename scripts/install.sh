@@ -44,7 +44,12 @@ echo "==> Installing scientific reasoning packages"
   ortools \
   z3-solver \
   cvxpy \
-  pymc
+  pymc \
+  pyomo \
+  networkx
+
+echo "==> Installing Lean core (mandatory)"
+bash "${ROOT_DIR}/scripts/install-lean-core.sh"
 
 echo "==> Checking SageMath"
 if command -v sage >/dev/null 2>&1; then

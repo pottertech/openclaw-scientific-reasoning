@@ -1,23 +1,48 @@
 {
   "capability_name": "optimization",
-  "description": "Mathematical optimization including both discrete combinatorial optimization (OR-Tools) and continuous convex optimization (CVXPY). Covers scheduling, routing, assignment, and objective maximization.",
-  "included_tools": ["ortools", "cvxpy"],
-  "routing_keywords": ["schedule", "assign", "route", "packing", "bin packing", "worker assignment", "minimize", "maximize", "objective", "budget", "capacity", "optimal allocation", "linear program", "integer program"],
+  "description": "Mathematical optimization including discrete combinatorial optimization (OR-Tools), continuous convex optimization (CVXPY), and broader optimization modeling (Pyomo). Covers scheduling, routing, assignment, production planning, and objective maximization.",
+  "included_tools": ["ortools", "cvxpy", "pyomo"],
+  "routing_keywords": [
+    "schedule",
+    "assign",
+    "route",
+    "packing",
+    "bin packing",
+    "worker assignment",
+    "minimize",
+    "maximize",
+    "objective",
+    "budget",
+    "capacity",
+    "optimal allocation",
+    "linear program",
+    "integer program",
+    "mixed integer",
+    "production planning",
+    "supply planning",
+    "operations research",
+    "nonlinear optimization"
+  ],
   "use_cases": [
     "Schedule workers to jobs to minimize total travel time",
     "Pack boxes into bins with minimum wasted space",
     "Minimize cost subject to resource constraints",
-    "Find the best portfolio allocation under risk constraints"
+    "Find the best portfolio allocation under risk constraints",
+    "Build a production planning model with capacity constraints",
+    "Optimize supply chain with mixed-integer decisions"
   ],
   "exclusions": [
     "Symbolic derivation and simplification",
     "Satisfiability checking for logical constraints",
-    "Uncertainty-aware probabilistic inference"
+    "Uncertainty-aware probabilistic inference",
+    "Formal proof and verification"
   ],
   "example_prompts": [
     "Assign 5 workers to 5 jobs with minimum total cost",
     "Pack 50 items of varying sizes into the fewest bins",
-    "Minimize x + 2y subject to x + y >= 10, x >= 0, y >= 0"
+    "Minimize x + 2y subject to x + y >= 10, x >= 0, y >= 0",
+    "Build a production planning model with capacity and demand constraints",
+    "Solve a mixed-integer resource allocation problem"
   ],
   "fallback_tool": "z3",
   "wrapper_contract": "wrappers/contracts/optimization-contract.json"
