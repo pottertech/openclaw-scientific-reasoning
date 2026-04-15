@@ -29,9 +29,13 @@ if [[ "${MODE}" == "full_remove" ]]; then
     ortools \
     z3-solver \
     cvxpy \
-    pymc || true
+    pymc \
+    pyomo \
+    networkx || true
 
   echo "NOTE: SageMath is not removed by this script."
+  echo "NOTE: Lean is not removed by this script (managed by elan)."
+  echo "To remove Lean: elan self-uninstall"
 fi
 
 echo "==> Uninstall complete"
