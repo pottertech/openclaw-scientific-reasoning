@@ -1,0 +1,40 @@
+{
+  "capability_id": "formal_reasoning",
+  "name": "Formal Reasoning",
+  "description": "Formal proof and machine-checked verification using Lean.",
+  "version": "0.1.0",
+  "status": "active",
+  "tools": ["Lean"],
+  "keywords": [
+    "prove",
+    "formal proof",
+    "theorem",
+    "invariant",
+    "formalize",
+    "machine checked",
+    "verified correctness",
+    "proof assistant"
+  ],
+  "use_when": [
+    "proving invariants formally",
+    "verifying safety properties",
+    "machine-checked proofs",
+    "formalizing logical claims",
+    "correctness proofs"
+  ],
+  "do_not_use_when": [
+    "quick satisfiability checks (use Z3)",
+    "ordinary symbolic manipulation",
+    "scheduling or routing",
+    "optimization",
+    "uncertainty inference",
+    "casual explanation"
+  ],
+  "contracts": [
+    "wrappers/contracts/formal-reasoning-contract.json"
+  ],
+  "playbooks": [
+    "playbooks/lean-playbook.md"
+  ],
+  "priority": 100
+}
