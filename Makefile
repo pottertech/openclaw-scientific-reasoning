@@ -1,4 +1,4 @@
-.PHONY: install verify update update-lock uninstall uninstall-full test clean
+PYTHON_BIN ?= python3
 
 install:
 	bash scripts/install.sh
@@ -12,6 +12,12 @@ update:
 update-lock:
 	bash scripts/update.sh refresh-lock
 
+register:
+	bash scripts/register-capabilities.sh
+
+unregister:
+	bash scripts/unregister-capabilities.sh
+
 uninstall:
 	bash scripts/uninstall.sh --mode unregister_only
 
@@ -19,8 +25,20 @@ uninstall-full:
 	bash scripts/uninstall.sh --mode full_remove
 
 test:
-	pytest -q
+	$(PYTHON_BIN) -m pytest -q
 
-clean:
-	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
-	find . -type f -name "*.pyc" -delete 2>/dev/null || true
+test-smoke:
+	$(PYTHON_BIN) -m pytest -q tests/smoke
+
+help:
+	@echo "Targets:"
+	@echo " install"
+	@echo " verify"
+	@echo " update"
+	@echo " update-lock"
+	@echo " register"
+	@echo " unregister"
+	@echo " uninstall"
+	@echo " uninstall-full"
+	@echo " test"
+	@echo " test-smoke"
