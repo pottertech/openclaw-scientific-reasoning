@@ -1,0 +1,86 @@
+{
+  "contract_name": "formal_reasoning_contract",
+  "contract_version": "0.1.0",
+  "domain": "formal_reasoning",
+  "description": "Normalized output contract for formal proof and verification tasks.",
+  "required_fields": [
+    "contract_version",
+    "domain",
+    "tool_name",
+    "status",
+    "errors",
+    "metadata",
+    "result"
+  ],
+  "field_definitions": {
+    "contract_version": {
+      "type": "string",
+      "required": true
+    },
+    "domain": {
+      "type": "string",
+      "required": true,
+      "const": "formal_reasoning"
+    },
+    "tool_name": {
+      "type": "string",
+      "required": true,
+      "enum": ["Lean"]
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "enum": ["success", "partial", "invalid_input", "failure", "timeout", "unproved"]
+    },
+    "errors": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "execution_time_ms": {
+          "type": ["number", "null"]
+        },
+        "proof_target": {
+          "type": ["string", "null"]
+        },
+        "theorem_name": {
+          "type": ["string", "null"]
+        },
+        "module_name": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "summary": {
+          "type": ["string", "null"]
+        },
+        "formal_statement": {
+          "type": ["string", "null"]
+        },
+        "proof_status": {
+          "type": ["string", "null"],
+          "enum": ["proved", "partially_proved", "unproved", "failed", null]
+        },
+        "assumptions": {
+          "type": ["array", "null"]
+        },
+        "generated_artifacts": {
+          "type": ["array", "null"]
+        },
+        "verification_notes": {
+          "type": ["array", "null"]
+        }
+      }
+    }
+  }
+}
