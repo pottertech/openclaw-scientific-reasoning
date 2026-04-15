@@ -1,44 +1,70 @@
 {
   "domains": {
-    "symbolic_math": {
-      "keywords": ["derive", "simplify", "symbolic", "exact", "solve exactly", "algebraic", "factor", "expand", "integrate symbolically", "differentiate"],
-      "tools": ["sympy", "sagemath"],
-      "priority": 10
-    },
-    "scientific_computing": {
-      "keywords": ["simulate", "numerical", "ode", "differential equation", "scientific", "compute numerically", "model", "solve numerically", "system dynamics"],
-      "tools": ["scipy", "pyneqsys", "pyodesys", "optlang"],
-      "priority": 8
-    },
-    "optimization_discrete": {
-      "keywords": ["schedule", "assign", "route", "packing", "bin packing", "worker assignment", "TSP", "vehicle routing"],
-      "tools": ["ortools"],
-      "priority": 9
-    },
-    "optimization_continuous": {
-      "keywords": ["minimize", "maximize", "objective", "budget", "capacity", "optimal allocation", "linear program", "integer program", "convex"],
-      "tools": ["cvxpy"],
-      "priority": 9
+    "formal_reasoning": {
+      "tool": "lean",
+      "priority": 100,
+      "keywords": ["prove", "formal proof", "invariant", "theorem", "machine checked", "verified correctness", "formalize", "proof assistant", "correctness proof", "safety proof"],
+      "exclude_if": ["quick consistency check", "simple contradiction check", "ordinary algebra"]
     },
     "constraint_reasoning": {
-      "keywords": ["satisfiable", "contradiction", "consistent", "policy conflict", "constraint check", "logical rules", "SAT", "SMT", "verify", "proof", "implication", "forall"],
-      "tools": ["z3"],
-      "priority": 10
+      "tool": "z3",
+      "priority": 90,
+      "keywords": ["satisfiable", "contradiction", "consistent", "can these rules all hold", "constraint check", "policy conflict", "symbolic constraints"],
+      "exclude_if": ["formal proof requested", "graph structure dominant", "uncertainty question"]
+    },
+    "graph_reasoning": {
+      "tool": "networkx",
+      "priority": 80,
+      "keywords": ["graph", "network", "dependency", "shortest path", "connectivity", "centrality", "topology", "workflow graph", "node importance"],
+      "exclude_if": ["vehicle routing objective", "non-graph conversational metaphor"]
+    },
+    "optimization_discrete": {
+      "tool": "ortools",
+      "priority": 70,
+      "keywords": ["assign", "schedule", "route", "pack", "shift", "allocation with slots", "worker assignment", "TSP", "vehicle routing"],
+      "exclude_if": ["continuous convex optimization", "formal proof", "probabilistic inference"]
+    },
+    "optimization_modeling": {
+      "tool": "pyomo",
+      "priority": 60,
+      "keywords": ["mixed integer", "production planning", "supply planning", "capacity planning", "operations research", "nonlinear optimization", "industrial optimization", "planning model"],
+      "exclude_if": ["small convex-only problem", "pure graph analysis", "formal proof"]
+    },
+    "optimization_convex": {
+      "tool": "cvxpy",
+      "priority": 50,
+      "keywords": ["minimize", "maximize", "objective", "convex", "least cost", "quadratic", "continuous allocation"],
+      "exclude_if": ["mixed integer industrial model", "discrete scheduling", "uncertainty inference"]
     },
     "uncertainty_inference": {
-      "keywords": ["uncertainty", "confidence", "posterior", "credible interval", "likely", "noisy evidence", "probability", "Bayesian", "expectation", "variance", "stochastic"],
-      "tools": ["pymc"],
-      "priority": 10
+      "tool": "pymc",
+      "priority": 40,
+      "keywords": ["uncertainty", "confidence", "posterior", "credible interval", "likely range", "update belief", "Bayesian"],
+      "exclude_if": ["exact algebra", "pure optimization", "simple conversational uncertainty"]
+    },
+    "symbolic_math": {
+      "tool": "sympy_or_sagemath",
+      "priority": 30,
+      "keywords": ["derive", "simplify", "exact", "symbolic", "solve exactly", "factor", "differentiate", "integrate"],
+      "exclude_if": ["simulation dominant", "formal proof required", "uncertainty inference"]
+    },
+    "scientific_computing": {
+      "tool": "scipy_stack",
+      "priority": 20,
+      "keywords": ["simulate", "numerical", "ode", "differential equation", "scientific", "compute numerically", "model", "solve numerically", "system dynamics"],
+      "exclude_if": ["symbolic derivation", "optimization", "proof-grade formalization"]
     },
     "chemistry": {
-      "keywords": ["molecule", "fingerprint", "reaction", "combustion", "quantum chemistry", "structure", "atom", "bond", "SMILES", "molfile", "reaction mechanism"],
-      "tools": ["rdkit", "cantera", "pyscf"],
-      "priority": 10
+      "tool": "rdkit_cantera_pyscf",
+      "priority": 10,
+      "keywords": ["molecule", "fingerprint", "reaction", "combustion", "quantum chemistry", "structure", "atom", "bond", "SMILES", "molfile"],
+      "exclude_if": []
     },
     "physics": {
+      "tool": "lcapy_scipy_cantera",
+      "priority": 10,
       "keywords": ["circuit", "impedance", "transfer function", "laplace", "thermodynamics", "electrical", "heat", "temperature", "Bode plot", "filter"],
-      "tools": ["lcapy", "scipy", "cantera"],
-      "priority": 10
+      "exclude_if": []
     }
   }
 }
