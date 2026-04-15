@@ -2,7 +2,7 @@
   "id": "openclaw-scientific-reasoning",
   "name": "OpenClaw-Scientific-Reasoning",
   "version": "0.1.0",
-  "description": "A unified reasoning toolkit for symbolic math, scientific computing, optimization, constraint solving, and uncertainty-aware inference.",
+  "description": "A unified reasoning toolkit for symbolic math, scientific computing, optimization, graph analysis, constraint solving, formal reasoning, and uncertainty-aware inference.",
   "category": "capability-pack",
   "tools": [
     "sympy",
@@ -18,13 +18,18 @@
     "ortools",
     "z3",
     "cvxpy",
-    "pymc"
+    "pymc",
+    "pyomo",
+    "networkx",
+    "lean"
   ],
   "capability_domains": [
     "symbolic_math",
     "scientific_computing",
     "optimization",
+    "graph_reasoning",
     "constraint_reasoning",
+    "formal_reasoning",
     "uncertainty_inference",
     "chemistry",
     "physics"

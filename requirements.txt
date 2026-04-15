@@ -11,3 +11,5 @@ ortools
 z3-solver
 cvxpy
 pymc
+pyomo
+networkx
