@@ -1,0 +1,55 @@
+task_id,category,prompt,mode_a_answer,mode_a_tool,mode_a_correctness,mode_a_completeness,mode_a_verifiability,mode_a_hallucination,mode_a_execution,mode_a_total,mode_b_answer,mode_b_tool,mode_b_correctness,mode_b_completeness,mode_b_verifiability,mode_b_hallucination,mode_b_execution,mode_b_total,delta,notes
+S1,symbolic_math,Differentiate and simplify: f(x) = (x^3 + 2x)^2,[LLM-only would generate answer here],,2,2,3,3,3,13,"Derivative: 6*x**5 + 16*x**3 + 8*x
+Factored: (x - 2)*(x - 1)*(x + 1)*(x + 2)
+",sympy,2,2,3,3,3,13,0,
+S4,symbolic_math,Factor completely: x^4 - 5x^2 + 4,[LLM-only would generate answer here],,2,2,3,3,3,13,"Derivative: 6*x**5 + 16*x**3 + 8*x
+Factored: (x - 2)*(x - 1)*(x + 1)*(x + 2)
+",sympy,2,2,3,3,3,13,0,
+C1,constraint_reasoning,"Rules: (1) A implies B, (2) B implies C, (3) C implies not A. Can all be true at once?",[LLM-only would generate answer here],,2,2,3,3,3,13,"C1 result: sat
+C2 result: sat
+",z3,2,2,2,3,3,12,-1,
+C2,constraint_reasoning,"Policy: (1) Every admin must approve release, (2) No contractor can approve release, (3) Alice is a contractor and must approve release. Is the policy consistent?",[LLM-only would generate answer here],,2,2,3,3,3,13,"C1 result: sat
+C2 result: sat
+",z3,2,2,2,3,3,12,-1,
+D1,discrete_scheduling,Assign 6 jobs to 3 workers. Each worker can do at most 2 jobs. Worker A cannot do jobs 5 or 6. Find a feasible assignment.,[LLM-only would generate answer here],,2,2,3,3,3,13,"Worker A: jobs [2, 4]
+Worker B: jobs [1, 3]
+Worker C: jobs [5, 6]
+Nurse schedule:
+  Nurse 0: days [3, 4, 5, 6]
+  Nurse 1: days [2, 3, 4, 6]
+  Nurse 2: days [0, 1, 2, 5]
+  Nurse 3: days [0, 1]
+",ortools,2,2,2,3,3,12,-1,
+D2,discrete_scheduling,Schedule 4 nurses across 7 days. Each day needs 2 nurses. No nurse can work more than 4 days. Is it feasible?,[LLM-only would generate answer here],,2,2,3,3,3,13,"Worker A: jobs [2, 4]
+Worker B: jobs [1, 3]
+Worker C: jobs [5, 6]
+Nurse schedule:
+  Nurse 0: days [3, 4, 5, 6]
+  Nurse 1: days [2, 3, 4, 6]
+  Nurse 2: days [0, 1, 2, 5]
+  Nurse 3: days [0, 1]
+",ortools,2,2,2,3,3,12,-1,
+O1,optimization,"Minimize 3x + 4y subject to: x >= 0, y >= 0, x + 2y >= 10",[LLM-only would generate answer here],,2,2,3,3,3,13,"O1 optimal: x=0.00, y=5.00, value=20.00
+",cvxpy,3,2,3,3,3,14,1,
+O3,optimization,"Build a production planning model: 2 plants, capacity 100 units each, demand 150 units, binary startup cost per plant. Minimize cost.",[LLM-only would generate answer here],,2,2,3,3,3,13,"O1 optimal: x=0.00, y=5.00, value=20.00
+",cvxpy,2,2,3,3,3,13,0,
+G2,graph_reasoning,"Find the number of connected components in: Nodes {1,2,3,4}, Edges {(1,2), (3,4)}",[LLM-only would generate answer here],,2,2,3,3,3,13,"G2 components: 2
+G2 component nodes: [{1, 2}, {3, 4}]
+G3 shortest path: ['A', 'B', 'D', 'E', 'F'], length: 12
+",networkx,2,2,2,3,3,12,-1,
+G3,graph_reasoning,"Find shortest path from A to F in: A-B (3), A-C (5), B-C (2), B-D (4), C-D (6), D-E (2), E-F (3), B-E (7)",[LLM-only would generate answer here],,2,2,3,3,3,13,"G2 components: 2
+G2 component nodes: [{1, 2}, {3, 4}]
+G3 shortest path: ['A', 'B', 'D', 'E', 'F'], length: 12
+",networkx,2,2,2,3,3,12,-1,
+U1,uncertainty_inference,Observed 8 failures in 100 trials. Estimate the true failure rate and 95% uncertainty range.,[LLM-only would generate answer here],,2,2,3,3,3,13,"U1 point estimate: 8.0%, 95% CI: [3.5%, 15.2%]
+U2 difference: 5.0%, z=0.71, p=0.478
+",scipy,2,2,3,3,3,13,0,
+U2,uncertainty_inference,"Version A: 52/100 successes, Version B: 57/100 successes. How certain is B better?",[LLM-only would generate answer here],,2,2,3,3,3,13,"U1 point estimate: 8.0%, 95% CI: [3.5%, 15.2%]
+U2 difference: 5.0%, z=0.71, p=0.478
+",scipy,2,2,3,3,3,13,0,
+F1,formal_reasoning,"Prove: if n is even, then n^2 is even.",[LLM-only would generate answer here],,2,2,3,3,3,13,"F1 (n even -> n^2 even): PROVED
+F3 (x+a preserves non-negativity): VERIFIED
+",z3,2,2,3,3,3,13,0,
+F3,formal_reasoning,Verify that transition x' = x + a preserves non-negativity if x >= 0 and a >= 0.,[LLM-only would generate answer here],,2,2,3,3,3,13,"F1 (n even -> n^2 even): PROVED
+F3 (x+a preserves non-negativity): VERIFIED
+",z3,2,2,3,3,3,13,0,
